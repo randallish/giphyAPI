@@ -5,15 +5,17 @@ var topics = ["nba","gaming","technology","movies"];
 // assigning a data attribute/class name
 // appending to page
 function gifButtons() {
+    $("#giphy").empty();
     for (var i = 0; i < topics.length; i++){
         var buttons = $("<button>" + topics[i] + "</button>");
         buttons.attr("data-name",topics[i]);
         buttons.addClass("gif-buttons");
         $("#giphy").append(buttons);
     }
+    getData();
 }
 gifButtons();
-getData();
+
    
     // assigns an onclick for each button
     // grabs each data-name for each button
@@ -64,9 +66,12 @@ function getData() {
 };
 
 
-
-
-// function getAttr () {
-//     var gifs = $(this).attr("data-name");
-//     console.log(gifs);
-// };
+// search input that adds a new button
+$("#search").on("click",function(event) {
+    event.preventDefault();
+    var search = $("#search-input").val().trim();
+    topics.push(search);
+    console.log(search);
+    $("#search-input").val('');
+    gifButtons();
+});
