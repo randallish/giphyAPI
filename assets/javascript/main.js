@@ -5,7 +5,7 @@ var topics = ["nba","gaming","technology","movies"];
 function gifButtons() {
     $("#giphy").empty();
     for (var i = 0; i < topics.length; i++){
-        var buttons = $("<button>" + topics[i] + "</button>");
+        var buttons = $("<button class='btn btn-info'>" + topics[i] + "</button>");
         
         // assigning a data attribute/class name
         buttons.attr("data-name",topics[i]);
@@ -14,8 +14,8 @@ function gifButtons() {
         // appending to page
         $("#giphy").append(buttons);
     }
-    getData();
-}
+    getData(); 
+};
 gifButtons();
 
    
@@ -44,6 +44,7 @@ function getData() {
         var data = response.data;
         console.log(data);
 
+        $(".giphy-images").empty();
         // looping over the data
         // assigning attributes and appending to page
         for (var x = 0 ; x < data.length; x++){
@@ -56,20 +57,37 @@ function getData() {
 
             // assigning attributes based on animation
             var gifImage = $("<img>");
-            gifImage.attr("data-animate", data[x].images.fixed_height.url);
-            gifImage.attr("src", data[x].images.fixed_height_still.url);
-            gifImage.attr("data-still", data[x].images.fixed_height_still.url);
+            var animation = data[x].images.fixed_height.url;
+            var still = data[x].images.fixed_height_still.url;
+            gifImage.attr("data-animate", animation);
+            gifImage.attr("src", still);
+            gifImage.attr("data-still",still);
+            gifImage.attr('data-state', 'still');
+            gifImage.on("click", animate);
             console.log(gifImage);
           
             // appending to page
             gifDiv.append(ratingText);
             gifDiv.append(gifImage);
-            $("#giphy-images").append(gifDiv);
+            $(".giphy-images").append(gifDiv);
+        }
+    });
 
+    function animate() {
+        // $(".giphy-images").on("click",function() {
+        var state = $(this).attr('data-state');
+        if (state == 'still'){
+             $(this).attr('src', $(this).attr('data-animate'));
+              $(this).attr('data-state', 'animate');
+         } else{
+             $(this).attr('src', $(this).attr('data-still'));
+             $(this).attr('data-state', 'still');
+            }
         };
     });
-});
 };
+    
+
 
 
 // search input that adds a new button
