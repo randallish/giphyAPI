@@ -58,6 +58,7 @@ function getData() {
             var gifDiv = $("<div>");
             var rating = data[x].rating;
             var ratingText = $("<p>").text("Rating: " + rating);
+            ratingText.addClass('rating');
             console.log(rating);
 
             // assigning attributes based on state
@@ -101,7 +102,7 @@ $("#search").on("click",function(event) {
     event.preventDefault();
     // creating variable for user input value
     var search = $("#search-input").val().trim();
-    
+
     // inserting new search into topics array
     topics.push(search);
     console.log(search);

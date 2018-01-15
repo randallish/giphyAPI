@@ -4,7 +4,7 @@
 
 #search-form {
     margin-left:-490px;
-    margin-top: -600px;
+    margin-top: -580px;
 }
 
 .giphy-images{
@@ -14,10 +14,11 @@
 
 
 .gif-buttons {
-    margin-top: -50px;
+    margin-top: -38px;
     padding-left: 10px;
     padding-top: 5px;
     margin-left: 10px;
+    font-size: 25px;
 }
 
 #search {
@@ -51,4 +52,8 @@ body {
 
 #giphy-heading {
     font-size: 80px;
+}
+
+.rating {
+    font-size: 30px;
 }
