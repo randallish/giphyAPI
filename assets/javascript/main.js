@@ -99,10 +99,16 @@ function getData() {
 // search input that adds a new button
 $("#search").on("click",function(event) {
     event.preventDefault();
+    // creating variable for user input value
     var search = $("#search-input").val().trim();
+    
+    // inserting new search into topics array
     topics.push(search);
     console.log(search);
+
+    // clearing the text
     $("#search-input").val('');
+
+    // calling our create buttons function
     gifButtons();
-    $("#search").show();
 });
