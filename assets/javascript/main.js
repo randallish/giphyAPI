@@ -1,5 +1,5 @@
 // list of topics 
-var topics = ["nba","gaming","technology","movies"];
+var topics = ["nba","gaming","technology","movies","television","sports","bitcoin","apple","cars"];
 
 // creating the buttons for each topic
 function gifButtons() {
@@ -14,6 +14,7 @@ function gifButtons() {
         // appending to page
         $("#giphy").append(buttons);
     }
+    // calling our ajax after each element is dynamically created
     getData(); 
 };
 gifButtons();
@@ -23,18 +24,20 @@ gifButtons();
 function getData() {
     $(".gif-buttons").on("click",function() {
 
-    // each buttons gifs will stack without using this to clear
+    // each buttons gifs will stack without using this to clear it
     $("#giphy-images").empty();
 
     // grabs each data-name for each button
     var gifs = $(this).attr("data-name");
+
+    // main url to grab data from
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gifs + "&api_key=XpxRBrBVmqjZojqEls4PAFtCfCBJjp9K&limit=10";
 
     // calling our ajax
     $.ajax({
       url:queryURL,
       method: "GET"
-    }) // after the ajax call do this
+    }) // after the ajax call finishes
     .done(function(response) {
         // testing
         console.log(queryURL);
@@ -44,18 +47,20 @@ function getData() {
         var data = response.data;
         console.log(data);
 
+        // clearing previous images for each click
         $(".giphy-images").empty();
+        
         // looping over the data
         // assigning attributes and appending to page
         for (var x = 0 ; x < data.length; x++){
             
-            // grabbing its rating and creating a text variable
+            // variables for the rating and where to append it
             var gifDiv = $("<div>");
             var rating = data[x].rating;
             var ratingText = $("<p>").text("Rating: " + rating);
             console.log(rating);
 
-            // assigning attributes based on animation
+            // assigning attributes based on state
             var gifImage = $("<img>");
             var animation = data[x].images.fixed_height.url;
             var still = data[x].images.fixed_height_still.url;
@@ -73,6 +78,7 @@ function getData() {
         }
     });
 
+    // checking for condition of the gif
     function animate() {
         // $(".giphy-images").on("click",function() {
         var state = $(this).attr('data-state');
@@ -98,4 +104,5 @@ $("#search").on("click",function(event) {
     console.log(search);
     $("#search-input").val('');
     gifButtons();
+    $("#search").show();
 });

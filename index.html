@@ -6,27 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Giphy API</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Ranga" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
         <div class="jumbotron jumbotron-fluid">
                 <div class="container">
-                  <h1 class="display-4" id="giphy-heading">Giphy API</h1>
+                  <h1 class="display-4 text-success" id="giphy-heading">Giphy API</h1>
                 </div>
               </div>
     <div id="giphy"></div>
-    <div class="giphy-images"></div>
+    <div class="giphy-images">
+        </div>
+    <div id="search-div">
+                    <form id="search-form" class="form-inline">
+                      <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                      <button id="search" class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                    </div>
+    </div>
 
-    <div class="container">
-			<form id="search-form">
-      			<label for="search">Search</label>
-      			<input type="text" id="search-input"><br>
-      			<input id="search" type="submit" value="Submit">
-    		</form>
-		</div>
-	</div>
-
-    
 
 
 <script

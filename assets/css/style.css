@@ -3,6 +3,52 @@
 }
 
 #search-form {
-    position:absolute;
-    margin-left: 900px;
+    margin-left:-490px;
+    margin-top: -600px;
+}
+
+.giphy-images{
+    margin-top: 100px;
+
+}
+
+
+.gif-buttons {
+    margin-top: -50px;
+    padding-left: 10px;
+    padding-top: 5px;
+    margin-left: 10px;
+}
+
+#search {
+    margin-left: 25px;
+    margin-top: 200px;
+    font-size: 22px;
+    padding-left: 10px;
+    width: 100px;
+    height: 40px;
+}
+
+#search-input {
+    height: 40px;
+    width: 180px;
+}
+
+#search-div {
+    margin-left: 500px;
+}
+
+body {
+    width: 100%;
+    font-family: 'Ranga', cursive;
+}
+
+.giphy-images{
+    width: 500px;
+    height: 500px;
+    max-width: 500px;
+}
+
+#giphy-heading {
+    font-size: 80px;
 }
